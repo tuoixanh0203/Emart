@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.SellerActivity">
+
+    <!-- toolbar -->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textHeading"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/logout_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_logout" />
+
+        <ImageButton
+            android:id="@+id/edit_profile_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@+id/logout_btn"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_edit_white" />
+
+        <ImageButton
+            android:id="@+id/add_product_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@+id/edit_profile_btn"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_add_shopping_cart_white"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/seller_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_baseline_store_gray"
+            app:civ_border="true"
+            app:civ_border_color="@color/white" />
+
+        <TextView
+            android:id="@+id/username_seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/seller_img"
+            android:text="Tên"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/shop_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_seller"
+            android:layout_toEndOf="@+id/seller_img"
+            android:text="Tên cửa hàng"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/shop_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shop_phone"
+            android:layout_toEndOf="@+id/seller_img"
+            android:text="Email"
+            android:textColor="@color/white" />
+
+        <!-- products, orders -->
+        <LinearLayout
+            android:layout_below="@+id/seller_img"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_rect01"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <!-- products -->
+            <TextView
+                android:id="@+id/product_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rect02"
+                android:gravity="center"
+                android:text="Sản phẩm"
+                android:textColor="@color/black"
+                android:clickable="true"/>
+
+            <!-- orders -->
+            <TextView
+                android:id="@+id/order_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Đơn hàng"
+                android:textColor="@color/white"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- product -->
+    <RelativeLayout
+        android:id="@+id/productRl"
+        android:layout_below="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_product_view"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+    <!-- order -->
+    <RelativeLayout
+        android:id="@+id/orderRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarRl">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_order_view"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:padding="5dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

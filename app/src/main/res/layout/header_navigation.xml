@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="#673AB7"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/image_menu"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        tools:srcCompat="@tools:sample/avatars" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ecommerce"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy products"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+</LinearLayout>

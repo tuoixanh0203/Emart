@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Trang chủ" />
+
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
+            android:title="Giỏ hàng" />
+
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_baseline_quantity_24"
+            android:title="Đơn mua" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Tìm kiếm" />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@android:drawable/stat_notify_chat"
+            android:title="Thông báo" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_account_circle"
+            android:title="Trang cá nhân" />
+
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_baseline_loginout"
+            android:title="Đăng nhập" />
+        <item
+            android:id="@+id/nav_signup"
+            android:icon="@drawable/ic_add_circle_outline"
+            android:title="Đăng ký" />
+
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_baseline_logout"
+            android:title="Đăng xuất" />
+
+
+    </group>
+</menu>

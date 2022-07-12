@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/linear_ll"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_back"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sửa hồ sơ"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thoát"
+            android:textColor="@color/textHeading"
+            android:layout_alignParentRight="true"
+            android:textStyle="normal"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:backgroundTint="@color/textHeading"
+        android:layout_below="@+id/linear_ll"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"/>
+
+</LinearLayout>

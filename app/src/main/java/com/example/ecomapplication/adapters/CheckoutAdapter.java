@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ecomapplication.R;
 import com.example.ecomapplication.models.MyCartModel;
 import com.example.ecomapplication.models.Product;
+//import com.google.android.gms.analytics.ecommerce.Product;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 

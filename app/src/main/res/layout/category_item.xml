@@ -1,48 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="110dp"
+    android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="#EDEDED"
-    android:paddingTop="10dp"
-    app:cardCornerRadius="10dp">
-
+    android:layout_margin="5dp"
+    android:background="@drawable/text_shadow">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EDEDED"
         android:id="@+id/item_btn">
 
         <ImageView
             android:id="@+id/cate_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/milk"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/categoryName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/cate_name"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:fontFamily="@font/amethysta"-->
-<!--            android:text="Danh mục"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textAlignment="center"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.407"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/cate_img" />-->
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+            tools:ignore="ImageContrastCheck" />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:id="@+id/cate_name"
             android:text="Danh mục"
             android:textAlignment="center"

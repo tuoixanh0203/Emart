@@ -3,14 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_checkout_actitvity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_feedback_acitivity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_my_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_order_detail.xml" value="0.10507246376811594" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_payment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_payment2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_payment_test.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/cart_item_test.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/category_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/category_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/fragment_cart.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/fragment_new_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/my_order_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/popular_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/product_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/product_order_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/row_comment.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/row_comment_test.xml" value="0.15" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ecommerAndroidV2/app/src/main/res/layout/fragment_home.xml" value="0.17074275362318841" />

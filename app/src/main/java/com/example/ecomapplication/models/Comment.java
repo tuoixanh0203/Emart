@@ -10,7 +10,7 @@ public class Comment {
     private Date date;
     String id_product;
     String id_user;
-//    String user_img;
+    String user_img;
     String comment_img;
     int rating;
 
@@ -18,54 +18,14 @@ public class Comment {
 
     }
 
-    public Comment(String content, Date date, String id_product, String id_user, String user_img, int rating) {
+    public Comment(String content, Date date, String id_product, String id_user, String user_img, String comment_img, int rating) {
         this.content = content;
         this.date = date;
         this.id_product = id_product;
         this.id_user = id_user;
-//        this.user_img = user_img;
+        this.user_img = user_img;
         this.comment_img = comment_img;
         this.rating = rating;
-    }
-
-    public String getComment_img() {
-        return comment_img;
-    }
-
-    public void setComment_img(String comment_img) {
-        this.comment_img = comment_img;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-//
-//    public String getUser_img() {
-//        return user_img;
-//    }
-//
-//    public void setUser_img(String user_img) {
-//        this.user_img = user_img;
-//    }
-
-    public Comment(String content, String id_product, String id_user, String user_img) {
-        this.content = content;
-        this.id_product = id_product;
-        this.id_user = id_user;
-        this.date = new Date();
-//        this.user_img = user_img;
-    }
-
-    public Comment(String content, Date date, String id_product, String id_user, String user_img) {
-        this.content = content;
-        this.date = date;
-        this.id_product = id_product;
-        this.id_user = id_user;
-//        this.user_img = user_img;
     }
 
     public String getContent() {
@@ -100,4 +60,27 @@ public class Comment {
         this.id_user = id_user;
     }
 
+    public String getUser_img() {
+        return user_img;
+    }
+
+    public void setUser_img(String user_img) {
+        this.user_img = user_img;
+    }
+
+    public String getComment_img() {
+        return comment_img;
+    }
+
+    public void setComment_img(String comment_img) {
+        this.comment_img = comment_img;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 }

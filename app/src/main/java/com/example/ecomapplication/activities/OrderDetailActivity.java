@@ -43,7 +43,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                        Intent intent = new Intent(OrderDetailActivity.this, DetailActivity.class);
+                        Intent intent = new Intent(OrderDetailActivity.this, FeedbackAcitivity.class);
                         intent.putExtra("id_product",  productList.get(0).getDocumentId());
                         startActivity(intent);
                     }

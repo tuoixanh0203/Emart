@@ -20,7 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecomapplication.Helper.NotificationApi;
 import com.example.ecomapplication.R;
+import com.example.ecomapplication.activities.DetailActivity;
+import com.example.ecomapplication.activities.FeedbackAcitivity;
 import com.example.ecomapplication.activities.OrderDetailActivity;
+import com.example.ecomapplication.activities.ShowAllProductsActivity;
 import com.example.ecomapplication.models.FCMNotification;
 import com.example.ecomapplication.models.OrderModel;
 import com.example.ecomapplication.models.Product;
@@ -96,19 +99,33 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             case "received":
                 holder.buttonReceived.setEnabled(false);
                 holder.status_order.setText("Đã nhận đơn hàng");
-                holder.buttonReceived.setBackgroundColor(0xFF9EE639);
-                holder.buttonReceived.setText("Đã nhận hàng");
+//                holder.buttonReceived.setBackgroundColor(0xFF9EE639);
+//                holder.buttonReceived.setText("Đã nhận hàng");
+                holder.buttonReceived.setVisibility(View.GONE);
+                holder.buttonFeedback.setVisibility(View.VISIBLE);
                 break;
         }
         int id = position;
         holder.buttonReceived.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.buttonReceived.setText("Đã nhận hàng");
+//                holder.buttonReceived.setText("Đánh giá");
                 holder.status_order.setText("Đã nhận đơn hàng");
-                holder.buttonReceived.setBackgroundColor(0xFF9EE639);
-                holder.buttonReceived.setEnabled(false);
+//                holder.buttonReceived.setBackgroundColor(0xFF9EE639);
+//                holder.buttonReceived.setEnabled(false);
+                holder.buttonReceived.setVisibility(View.GONE);
+                holder.buttonFeedback.setVisibility(View.VISIBLE);
                 ReceiveOrder(id);
+            }
+        });
+        holder.buttonFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, FeedbackAcitivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_order", orderModel);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
             }
         });
     }
@@ -219,7 +236,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView orderAddress, orderDate, shippedDate, total, status_order;
         RelativeLayout layoutItem;
-        Button buttonReceived;
+        Button buttonReceived, buttonFeedback;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -229,6 +246,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             status_order = itemView.findViewById(R.id.status_order);
             layoutItem = itemView.findViewById(R.id.order_item);
             buttonReceived = itemView.findViewById(R.id.btn_received);
+            buttonFeedback = itemView.findViewById(R.id.btn_feedback);
         }
     }
 }

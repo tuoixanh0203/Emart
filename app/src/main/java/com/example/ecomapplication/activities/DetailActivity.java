@@ -140,7 +140,7 @@ public class DetailActivity extends AppCompatActivity {
   //          String _user = "dfdfsfdsf".trim();
             Object date = ServerValue.TIMESTAMP;
 
-            AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl);
+            AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl, 4, "");
         });
     }
 
@@ -174,7 +174,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
-    public void AddCommentToFireBase(String content, Date date, String id_product, String id_user, String user_img){
+    public void AddCommentToFireBase(String content, Date date, String id_product, String id_user, String user_img, int rating, String comment_Img){
         String docId = UUID.randomUUID().toString();
 
         Map<String, Object> doc = new HashMap<>();
@@ -183,6 +183,8 @@ public class DetailActivity extends AppCompatActivity {
         doc.put("id_product", id_product);
         doc.put("id_user", id_user);
         doc.put("user_img", user_img);
+        doc.put("rating", rating);
+        doc.put("comment_img", comment_Img);
 
         db.collection("Comment").document(docId).set(doc)
                 .addOnCompleteListener(task -> {

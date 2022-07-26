@@ -63,11 +63,21 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         holder.tv_content.setText(mData.get(position).getContent());
         holder.tv_date.setText(order_date);
 
-        StorageReference storageReference = storage.getReferenceFromUrl(mData.get(position).getComment_img());
-        storageReference.getDownloadUrl()
-                .addOnSuccessListener(uri -> Picasso.get().load(uri.toString()).into(holder.img_comment))
-                .addOnFailureListener(e -> Log.v("Error", "Error when get the images: " + e));
+        if (!mData.get(position).getUser_img().equals("")) {
+            StorageReference storageReference = storage.getReferenceFromUrl(mData.get(position).getUser_img());
+            storageReference.getDownloadUrl()
+                    .addOnSuccessListener(uri -> Picasso.get().load(uri.toString()).into(holder.img_user))
+                    .addOnFailureListener(e -> Log.v("Error", "Error when get the images: " + e));
+        }
 
+        if (!mData.get(position).getComment_img().equals("")) {
+            StorageReference storageReference = storage.getReferenceFromUrl(mData.get(position).getComment_img());
+            storageReference.getDownloadUrl()
+                    .addOnSuccessListener(uri -> Picasso.get().load(uri.toString()).into(holder.img_comment))
+                    .addOnFailureListener(e -> Log.v("Error", "Error when get the images: " + e));
+        } else {
+            holder.img_comment.setVisibility(View.GONE);
+        }
 
         holder.rating_user.setRating(mData.get(position).getRating());
     }

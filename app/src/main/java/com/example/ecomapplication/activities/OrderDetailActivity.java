@@ -39,15 +39,6 @@ public class OrderDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
-        feedback = findViewById(R.id.button_feedback);
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                        Intent intent = new Intent(OrderDetailActivity.this, FeedbackAcitivity.class);
-                        intent.putExtra("id_product",  productList.get(0).getDocumentId());
-                        startActivity(intent);
-                    }
-                });
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             return;
@@ -57,6 +48,17 @@ public class OrderDetailActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         productView = findViewById(R.id.productList);
         total = findViewById(R.id.all_total_price_order);
+        feedback = findViewById(R.id.button_feedback);
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        Intent intent = new Intent(OrderDetailActivity.this, FeedbackAcitivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_order", orderModel);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                });
 
         productList = new ArrayList<>();
         firestore.collection("OrderDetail").document(id)

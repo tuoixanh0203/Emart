@@ -53,7 +53,8 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
     Button btnAddImgFb;
     ImageView productPhoto, thumbnail;
     EditText content;
-    String id_order, id_product, emailUser;
+    String id_order, id_product, emailUser, ratingPro;
+    int ratingNumPro;
     FirebaseFirestore db;
     private FirebaseAuth auth;
     Uri imageUri;
@@ -128,7 +129,7 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
             Object date = ServerValue.TIMESTAMP;
 
             AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl, numStar, imgUrlComment);
-
+            updateRatingProduct(numStar);
 //            startActivity(new Intent(FeedbackAcitivity.this , HomeFragment.class));
         });
 
@@ -138,6 +139,22 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
                 selectImgComment();
             }
         });
+    }
+
+    private void updateRatingProduct(int numStar) {
+        FirebaseFirestore.getInstance().collection("Product").document(id_product)
+                .get().addOnSuccessListener(documentSnapshot -> {
+                    ratingPro = (String) documentSnapshot.get("rating");
+                    ratingNumPro = Math.toIntExact(documentSnapshot.getLong("rating_number"));
+                    float f_ratingPro = Float.parseFloat(ratingPro);
+                    float f = (float)(f_ratingPro * ratingNumPro + numStar)/(ratingNumPro + 1);
+                    float ratingValue = (float) Math.round(f * 10) / 10;
+                    db.collection("Product").document(id_product)
+                            .update("rating", String.valueOf(ratingValue), "rating_number", ratingNumPro + 1);
+                    Intent intent = new Intent(FeedbackAcitivity.this, DetailActivity.class);
+                    intent.putExtra("id_product",  id_product);
+                    startActivity(intent);
+                });
     }
 
     public void selectImgComment(){

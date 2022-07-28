@@ -17,6 +17,7 @@ public class Product implements Serializable {
     private String rating;
     private String id_seller;
     private String documentId;
+    private int rating_number;
 
     public Product() {}
 
@@ -148,5 +149,13 @@ public class Product implements Serializable {
 
     public void setId_seller(String id_seller) {
         this.id_seller = id_seller;
+    }
+
+    public int getRating_number() {
+        return rating_number;
+    }
+
+    public void setRating_number(int rating_number) {
+        this.rating_number = rating_number;
     }
 }

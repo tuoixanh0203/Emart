@@ -44,7 +44,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="200dp">
 
         <ImageView
             android:id="@+id/thumbnail"
@@ -56,14 +56,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="32dp">
         <LinearLayout
             app:layout_constraintHorizontal_bias="0.1"
-            android:translationY="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/product_Img"
@@ -75,173 +74,135 @@
                 android:padding="6dp"
                 android:text="Thêm ảnh"
                 android:background="@drawable/shape_rect01"
-                android:textSize="10sp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <RelativeLayout
+
+            <EditText
+                android:id="@+id/product_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:layout_marginTop="22dp"
+                android:drawableStart="@drawable/ic_baseline_edit_24"
+                android:drawablePadding="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Tên sản phẩm *"
+                android:inputType="text"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Tên sản phẩm *"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/product_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/product_desc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:ems="10"
+                android:layout_marginTop="12dp"
+                android:hint="Mô tả sản phẩm *"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/custom_input"
+                android:inputType="text"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mô tả sản phẩm *"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
-
-                <EditText
-                    android:id="@+id/product_desc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <Spinner
+                android:id="@+id/product_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:paddingStart="12dp"
+                android:drawableStart="@drawable/ic_baseline_edit_24"
+                android:drawablePadding="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/custom_input"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Danh mục *"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
-                <Spinner
-                    android:id="@+id/product_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="42dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/product_size"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:layout_marginTop="12dp"
+                android:hint="Phân loại (size: S, M, L,...; màu: trắng, đen,...)"
+                android:inputType="text"
+                android:drawableStart="@drawable/ic_baseline_category_24"
+                android:drawablePadding="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Phân loại hàng *"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/product_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/product_price"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Giá tiền *"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textSize="18dp"
+                android:drawableStart="@drawable/ic_baseline_monetization_on_24"
+                android:drawablePadding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Giá *"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/product_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/product_quantity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Số lượng *"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textSize="18dp"
+                android:drawableStart="@drawable/ic_baseline_quantity_24"
+                android:drawablePadding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Số lượng *"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/product_quantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Đánh giá"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/product_rating"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-            </RelativeLayout>
+<!--            <EditText-->
+<!--                android:id="@+id/product_rating"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Đánh giá *"-->
+<!--                android:paddingStart="12dp"-->
+<!--                android:paddingEnd="12dp"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:background="@drawable/custom_input"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="18dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
             <Button
                 android:layout_width="match_parent"

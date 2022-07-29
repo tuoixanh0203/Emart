@@ -86,13 +86,12 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
                 String _productPrice = productPrice.getText().toString().trim();
                 String _productQuantity = productQuantity.getText().toString().trim();
                 String _productSize = productSize.getText().toString().trim();
-                String _productRating = productRating.getText().toString().trim();
                 String _id = id.trim();
                 String _imgUrl = "gs://ecommerce-de4aa.appspot.com/images/" + uploadToFirebase();
                 Log.v("tagg", _imgUrl);
 
                 AddProductToFireBase(_productDesc, _id, cate_gory, _imgUrl, _productName,
-                        Integer.valueOf(_productPrice), Integer.valueOf(_productQuantity), _productRating, _productSize);
+                        Integer.valueOf(_productPrice), Integer.valueOf(_productQuantity), "0", _productSize, 0);
 
                 startActivity(new Intent(NewProductActivity.this , SellerActivity.class));
             }
@@ -139,7 +138,7 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
     }
 
     public void AddProductToFireBase(String description, String id, String id_category, String img_url, String name,
-                                     int price, int quantity, String rating, String size){
+                                     int price, int quantity, String rating, String size, int rating_number){
 
 //        String docId = UUID.randomUUID().toString();
         String docId = id;
@@ -156,6 +155,7 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
         doc.put("rating", rating);
         doc.put("size", size);
         doc.put("id_seller", auth.getUid());
+        doc.put("rating_number", rating_number);
         db.collection("Product").document(docId).set(doc)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

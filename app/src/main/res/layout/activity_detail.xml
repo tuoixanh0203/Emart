@@ -79,8 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:progressTint="@color/quantum_yellow"
                         android:layout_marginTop="15dp"
+                        android:progressTint="@color/quantum_yellow"
                         android:isIndicator="true"
                         android:numStars="5"
                         android:rating="4.3"
@@ -207,59 +207,57 @@
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/user_comment_img"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/avatar"
+            android:layout_width="47dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/avatar1"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buy_now" />
 
         <EditText
             android:id="@+id/post_detail_comment"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_width="400dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_button_style_rounded"
-            android:ems="19"
             android:hint="Write Comment"
-            android:inputType="textPersonName"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/user_comment_img"
+            app:layout_constraintBottom_toTopOf="@+id/rv_comment"
+            app:layout_constraintEnd_toStartOf="@+id/add_comment_btn"
             app:layout_constraintStart_toEndOf="@+id/user_comment_img"
-            app:layout_constraintTop_toTopOf="@+id/user_comment_img"
-            app:layout_constraintVertical_bias="0.833" />
+            app:layout_constraintTop_toBottomOf="@+id/buy_now" />
 
         <Button
             android:id="@+id/add_comment_btn"
-            android:layout_width="63dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="4dp"
+            android:layout_width="65dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="28dp"
             android:background="@drawable/edittext_button_style_rounded"
             android:backgroundTint="@color/turquoise"
 
             android:text="Add"
             android:textSize="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/rv_comment"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buy_now"
-            app:layout_constraintVertical_bias="0.272"
-            android:visibility="invisible" />
+            app:layout_constraintTop_toBottomOf="@+id/buy_now" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_detail_comment" />
+            app:layout_constraintTop_toBottomOf="@+id/buy_now"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout >
 </androidx.core.widget.NestedScrollView>

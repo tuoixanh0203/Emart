@@ -126,6 +126,7 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seller_oder_detail);
         binding();
 
+
         final Object obj = getIntent().getSerializableExtra("productSellerDetail");
         if (obj instanceof Product) {
             product = (Product) obj;
@@ -155,6 +156,7 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
                     .addOnFailureListener(e -> Log.v("Error", "Error when get the images: " + e));
         }
         iniRvComment(productId);
+
         db.collection("SellerInfo").document(auth.getUid())
                 .get()
                 .addOnCompleteListener(task -> {
@@ -175,12 +177,6 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
         RvComment.setLayoutManager(new LinearLayoutManager(this));
         commentAdapter = new CommentAdapter(getApplicationContext(), list);
         RvComment.setAdapter(commentAdapter);
-
-//        RvComment.setLayoutManager(new LinearLayoutManager(this));
-//        commentAdapter = new CommentAdapter(getApplicationContext(), list);
-//        RvComment.setAdapter(commentAdapter);
-
-
 
         deleteProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -272,13 +268,11 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
                 try {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Comment comment = document.toObject(Comment.class);
-                        Log.v("name", comment.getContent());
                         if(comment.getId_product().equals(prod_id)){
                             list.add(comment);
                             commentAdapter.notifyDataSetChanged();
                         }
                     }
-
                 }
                 catch (Exception e ) {
                     e.printStackTrace();
@@ -301,61 +295,10 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), EditProductActivity.class);
 
-//                String product_name_up = detailedName.getText().toString();
-//                String product_desc_up = detailedDesc.getText().toString();
-//                String price_up = detailedPrice.getText().toString();
-//                String quantity_up = quantityInStock.getText().toString();
-//                String rating_up = String.valueOf(detailedRating.getRating());
-//
-//
-//                db.collection("Product").get().addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                            Product prod = document.toObject(Product.class);
-////                            Log.v("Chocomint", prod.getDocumentId());
-//                            if(prod.getId().equals(product.getId())){
-//                                product.setDocumentId(document.getId());
-//                                Log.v("Chupachup", product.getDocumentId());
-//                                documentId = product.getDocumentId();
-//                                intent.putExtra("Document ID", documentId);
-//                            }
-//                        }
-//                    } else {
-//                        Log.w(TAG, "Error getting documents.", task.getException());
-//                    }
-//                });
-
                 intent.putExtra("ProductToEdit", product);
-//                intent.putExtra("Description", product_desc_up);
-//                intent.putExtra("Category", product_category);
-//                intent.putExtra("Price", price_up);
-//                intent.putExtra("Quantity", quantity_up);
-//                intent.putExtra("Size", product_size);
-//                intent.putExtra("Rating", rating_up);
-//                intent.putExtra("ID", productId);
-
-                // start the Intent
                 startActivity(intent);
 
             }
         });
-//        buyNow.setOnClickListener(view -> {
-//            Product productCart = new Product(
-//                    product.getName(),
-//                    product.getImg_url(),
-//                    product.getId_category(),
-//                    product.getPrice(),
-//                    product.getSize(),
-//                    quantity,
-//                    product.getDescription()
-//            );
-//
-//            productCart.setProductId(productId);
-//
-//            addProductToFirebaseCart(view, productCart);
-//
-//            Intent intent = new Intent(view.getContext(), CheckoutActitvity.class);
-//            startActivity(intent);
-//        });
     }
 }

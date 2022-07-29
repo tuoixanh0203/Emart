@@ -99,7 +99,7 @@ public class DetailActivity extends AppCompatActivity {
         final Object productIdIntent = getIntent().getSerializableExtra("id_product");
         productId = (String) productIdIntent;
         if(productIdIntent != null){
-             getProductInfo((String) productIdIntent);
+            getProductInfo((String) productIdIntent);
         }
 
         checkHasBoughtProduct();
@@ -125,22 +125,18 @@ public class DetailActivity extends AppCompatActivity {
         commentAdapter = new CommentAdapter(getApplicationContext(), list);
         RvComment.setAdapter(commentAdapter);
 
-//        RvComment.setLayoutManager(new LinearLayoutManager(this));
-//        commentAdapter = new CommentAdapter(getApplicationContext(), list);
-//        RvComment.setAdapter(commentAdapter);
-
         addComment.setOnClickListener(view -> {
             iniRvComment(productId);
             commentAdapter = new CommentAdapter(getApplicationContext(), list);
             RvComment.setAdapter(commentAdapter);
             addComment.setVisibility(View.INVISIBLE);
-            String _imgUrl = "https://firebasestorage.googleapis.com/v0/b/ecommerce-de4aa.appspot.com/o/274736835_677983293549819_1786662699780048436_n.jpg?alt=media&token=23b9dcff-f1ce-436b-af77-101af401075f".trim();
+            String _imgUrl = "https://firebasestorage.googleapis.com/v0/b/ecommerce-de4aa.appspot.com/o/images%2Fic_launcher-playstore.png?alt=media&token=34190616-be4e-4db8-83f0-858487ef6c01".trim();
             String _id = productId.trim();
             String _comment = postDetailComment.getText().toString().trim();
-  //          String _user = "dfdfsfdsf".trim();
+            //          String _user = "dfdfsfdsf".trim();
             Object date = ServerValue.TIMESTAMP;
 
-            AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl, 4, "");
+            AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl);
         });
     }
 
@@ -149,7 +145,7 @@ public class DetailActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 try {
                     Product res = task.getResult().toObject(Product.class);
-                   product = res;
+                    product = res;
                     detailedName.setText(product.getName());
                     detailedDesc.setText(product.getDescription());
                     detailedPrice.setText(NumberFormat.getNumberInstance(new Locale("vi", "VN")).format(product.getPrice()));
@@ -174,7 +170,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
-    public void AddCommentToFireBase(String content, Date date, String id_product, String id_user, String user_img, int rating, String comment_Img){
+    public void AddCommentToFireBase(String content, Date date, String id_product, String id_user, String user_img){
         String docId = UUID.randomUUID().toString();
 
         Map<String, Object> doc = new HashMap<>();
@@ -183,8 +179,6 @@ public class DetailActivity extends AppCompatActivity {
         doc.put("id_product", id_product);
         doc.put("id_user", id_user);
         doc.put("user_img", user_img);
-        doc.put("rating", rating);
-        doc.put("comment_img", comment_Img);
 
         db.collection("Comment").document(docId).set(doc)
                 .addOnCompleteListener(task -> {
@@ -278,9 +272,9 @@ public class DetailActivity extends AppCompatActivity {
                                                     && product.getDocumentId().equals(productId)) {
                                                 Log.v("fdsfs____",product.getDocumentId());
                                                 Log.v("fdsfs____order",order);
-                                                userCommentImg.setVisibility(View.VISIBLE);
-                                                postDetailComment.setVisibility(View.VISIBLE);
-                                                addComment.setVisibility(View.VISIBLE);
+//                                                userCommentImg.setVisibility(View.VISIBLE);
+//                                                postDetailComment.setVisibility(View.VISIBLE);
+//                                                addComment.setVisibility(View.VISIBLE);
                                                 orderWarning.setVisibility(View.INVISIBLE);
                                                 return;
                                             }
@@ -329,13 +323,16 @@ public class DetailActivity extends AppCompatActivity {
 
         buyNow.setOnClickListener(view -> {
             Product productCart = new Product(
+                    product.getId(),
                     product.getName(),
                     product.getImg_url(),
                     product.getId_category(),
                     product.getPrice(),
                     product.getSize(),
                     quantity,
-                    product.getDescription()
+                    product.getDescription(),
+                    product.getRating(),
+                    product.getId_seller()
             );
 
 

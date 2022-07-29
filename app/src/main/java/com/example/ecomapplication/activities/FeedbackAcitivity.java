@@ -50,7 +50,7 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
     FirebaseFirestore firestore;
     RatingBar ratingProduct;
     TextView productNameFb, save;
-    Button btnAddImgFb;
+    TextView btnAddImgFb;
     ImageView productPhoto, thumbnail;
     EditText content;
     String id_order, id_product, emailUser, ratingPro;

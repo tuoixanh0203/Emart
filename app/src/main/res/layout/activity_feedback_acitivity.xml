@@ -35,11 +35,11 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Chọn"
+        android:id="@+id/save"
+        android:text="Lưu"
         android:textColor="@color/textHeading"
         android:textSize="15dp"
         android:textStyle="normal" />
@@ -85,9 +85,9 @@
       android:layout_height="wrap_content"
       android:layout_marginBottom="516dp"
       android:numStars="5"
-      android:rating="5.0"
+      android:rating="0.0"
+
       android:stepSize="1"
-      android:progressTint="@color/quantum_yellow"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.497"
@@ -97,8 +97,8 @@
 
   <LinearLayout
       android:id="@+id/linearLayout2"
-      android:layout_width="404dp"
-      android:layout_height="219dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/rating_product">
@@ -108,30 +108,32 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        tools:src="@tools:sample/avatars" />
   </LinearLayout>
 
-  <Button
+  <TextView
       android:id="@+id/button_add_img_fb"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:backgroundTint="@color/purple_700"
-      android:drawableLeft="@drawable/ic_baseline_add_photo"
-      android:drawableTint="@color/white"
-      android:padding="6dp"
+      android:layout_width="139dp"
+      android:layout_height="51dp"
+      android:layout_marginTop="16dp"
+      android:background="@drawable/bg_btn"
+      android:clickable="true"
+      android:drawableLeft="@drawable/ic_baseline_photo_camera_24"
+      android:gravity="center"
+      android:paddingLeft="20dp"
       android:text="Thêm ảnh"
-      android:background="@drawable/shape_rect01"
-      android:textSize="10sp"
-      android:textStyle="bold"
+      android:textColor="@color/textHeading"
+      android:textSize="18dp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.1"
+      app:layout_constraintHorizontal_bias="0.959"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
   <EditText
-      android:id="@+id/content_fb"
       android:layout_width="390dp"
       android:layout_height="75dp"
+      android:id="@+id/content_fb"
       android:text="Hãy chia sẻ những điều bạn thích về sản phẩm này nhé"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"

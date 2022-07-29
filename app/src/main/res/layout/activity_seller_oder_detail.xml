@@ -117,7 +117,6 @@
                     android:gravity="center_horizontal"
                     android:layout_margin="10dp">
 
-
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="0dp"
@@ -125,6 +124,7 @@
                         android:layout_marginLeft="80dp"
                         android:layout_weight="1"
                         android:drawableLeft="@drawable/ic_baseline_quantity_24"
+                        android:drawablePadding="12dp"
                         android:text="Kho hàng"
                         android:textAlignment="textEnd" />
 
@@ -155,7 +155,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardview"
-            app:layout_constraintVertical_bias="0.104"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent=".8" />
 
         <Button
@@ -184,41 +184,42 @@
             android:id="@+id/user_comment_img"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="28dp"
+            android:visibility="invisible"
+            android:layout_marginStart="24dp"
             android:src="@drawable/avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/delete_product" />
 
         <EditText
-
+            app:layout_constraintEnd_toStartOf="@+id/add_comment_btn"
+            app:layout_constraintStart_toEndOf="@+id/user_comment_img"
+            app:layout_constraintTop_toBottomOf="@+id/delete_product"
             android:id="@+id/post_detail_comment"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_height="43dp"
             android:background="@drawable/edittext_button_style_rounded"
             android:ems="19"
+            android:visibility="invisible"
             android:hint="Viết bình luận"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/user_comment_img"
-            app:layout_constraintStart_toEndOf="@+id/user_comment_img"
-            app:layout_constraintTop_toTopOf="@+id/user_comment_img"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/add_comment_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="4dp"
             android:background="@drawable/edittext_button_style_rounded"
             android:backgroundTint="@color/turquoise"
             android:textAllCaps="false"
+            android:visibility="invisible"
             android:text="Thêm"
             android:textSize="13dp"
             app:layout_constraintBottom_toTopOf="@+id/rv_comment"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buy_now"
+            app:layout_constraintTop_toBottomOf="@+id/delete_product"
             app:layout_constraintVertical_bias="0.272" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -226,13 +227,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_detail_comment" />
+            app:layout_constraintTop_toBottomOf="@+id/delete_product"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout >
 </androidx.core.widget.NestedScrollView>

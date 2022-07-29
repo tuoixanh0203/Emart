@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class EditSellerInfoActivity extends AppCompatActivity {
 
     TextInputLayout shopName, shopPhone, shopAddress, shopEmail;
-    TextView saveProfile;
+    ImageView saveProfile, back;
     FirebaseFirestore db;
     String shop_name, shop_phone, shop_address, shop_email;
     private FirebaseAuth auth;
@@ -35,6 +36,15 @@ public class EditSellerInfoActivity extends AppCompatActivity {
         shopAddress = findViewById(R.id.shop_address_update);
         shopEmail = findViewById(R.id.shop_email_update);
         saveProfile = findViewById(R.id.update_profile);
+        back = findViewById(R.id.back_button);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SellerActivity.class);
+                startActivity(intent);
+            }
+        });
 
         saveProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,10 +82,6 @@ public class EditSellerInfoActivity extends AppCompatActivity {
             shopName.requestFocus();
             shopName.setError("Không được để trống!");
             return false;
-        } else if (!_shopName.matches("\\D+")){
-            shopName.requestFocus();
-            shopName.setError("Tên shop không hợp lệ");
-            return false;
         }
         else if (_shopAddress.length() == 0){
             shopAddress.requestFocus();
@@ -94,7 +100,7 @@ public class EditSellerInfoActivity extends AppCompatActivity {
             shopPhone.requestFocus();
             shopPhone.setError("Không được để trống!");
             return false;
-        } else if (!_shopPhone.matches("^[+]?[0-9]{10,11}$")){
+        } else if (!_shopPhone.matches("^[+]?[0-9]{8,15}$")){
             shopPhone.requestFocus();
             shopPhone.setError("Số điện thoại không hợp lệ!");
             return false;

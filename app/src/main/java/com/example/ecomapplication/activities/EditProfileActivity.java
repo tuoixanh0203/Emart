@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +34,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.zip.Inflater;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     TextInputLayout firstName, lastName, userName, cityEt, emailEt, phoneEt;
-    TextView saveProfile;
-
+    ImageView saveProfile, back;
     String _firstName, _lastName, _userName, _city, _email, _phone;
 
     DatabaseReference reference;
@@ -58,12 +60,22 @@ public class EditProfileActivity extends AppCompatActivity {
         cityEt = findViewById(R.id.city_update);
         emailEt = findViewById(R.id.email_update);
         phoneEt = findViewById(R.id.phone_update);
+        back = findViewById(R.id.back_button);
 
         saveProfile = findViewById(R.id.update_profile);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), ProfileFragment.class);
+                startActivity(intent2);
+            }
+        });
 
         saveProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 String nameCheck = firstName.getEditText().getText().toString();
                 String cityCheck = cityEt.getEditText().getText().toString();
@@ -103,11 +115,7 @@ public class EditProfileActivity extends AppCompatActivity {
             firstName.setError("Họ tên không hợp lệ");
             return false;
         }
-        else if (city.length() == 0){
-            cityEt.requestFocus();
-            cityEt.setError("Không được để trống!");
-            return false;
-        } else if (!city.matches("^([a-zA-Z\\u0080-\\u024F]+(?:. |-| |'))*[a-zA-Z\\u0080-\\u024F]*$")){
+        else if (!city.matches("\\D+")){
             cityEt.requestFocus();
             cityEt.setError("Tên thành phố không hợp lệ!");
             return false;
@@ -120,12 +128,8 @@ public class EditProfileActivity extends AppCompatActivity {
             emailEt.requestFocus();
             emailEt.setError("Email không hợp lệ!");
             return false;
-        }else if (phone.length() == 0){
-            phoneEt.requestFocus();
-            phoneEt.setError("Không được để trống!");
-            return false;
         }
-        else if (!phone.matches("^[+]?[0-9]{10,11}$")){
+        else if (!phone.matches("^[+]?[0-9]{8,15}$")){
             phoneEt.requestFocus();
             phoneEt.setError("Số điện thoại không hợp lệ!");
             return false;
@@ -134,7 +138,6 @@ public class EditProfileActivity extends AppCompatActivity {
             return true;
         }
     }
-
 
     public void updateProfile(){
         if (!isFirstNameChanged() && !isCityChanged() && !isEmailChanged() && !isPhoneChanged()){
@@ -147,6 +150,7 @@ public class EditProfileActivity extends AppCompatActivity {
                             "email", emailEt.getEditText().getText().toString(),
                             "phone", phoneEt.getEditText().getText().toString());
             Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+
         }
     }
 

@@ -14,6 +14,6 @@
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent=".9"
+        android:layout_margin="10dp"
         tools:listitem="@layout/my_order_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

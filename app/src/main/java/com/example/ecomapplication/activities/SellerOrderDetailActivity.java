@@ -103,7 +103,7 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
         detailedImg = findViewById(R.id.detailed_img);
         detailedName = findViewById(R.id.detailed_name);
         detailedRating = findViewById(R.id.my_rating);
-        ratingValue = findViewById(R.id.rating_value);
+       // ratingValue = findViewById(R.id.rating_value);
         detailedDesc = findViewById(R.id.detailed_desc);
         detailedPrice = findViewById(R.id.detailed_price);
         quantityInStock = findViewById(R.id.seller_quantity);
@@ -139,7 +139,7 @@ public class SellerOrderDetailActivity extends AppCompatActivity {
             detailedName.setText(product.getName());
             detailedDesc.setText(product.getDescription());
             detailedPrice.setText(String.valueOf(product.getPrice()));
-            ratingValue.setText(product.getRating());
+           // ratingValue.setText(product.getRating());
             quantityInStock.setText(String.valueOf(product.getQuantity()));
             detailedRating.setRating(Float.parseFloat(product.getRating()));
             product_category = product.getId_category();

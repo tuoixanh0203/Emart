@@ -12,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.ecomapplication.MainActivity;
 import com.example.ecomapplication.R;
+import com.example.ecomapplication.activities.SellerActivity;
 import com.example.ecomapplication.models.Product;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,6 +37,7 @@ public class NewProductFragment extends Fragment {
     EditText productName, productDesc, productPrice, productQuantity, productCategory, productSize, productRating;
     FirebaseFirestore db;
     Product product;
+    ImageView back, save;
 
     // TODO: Rename and change types and number of parameters
     public static NewProductFragment newInstance(String param1, String param2) {
@@ -63,11 +66,20 @@ public class NewProductFragment extends Fragment {
         productCategory = root.findViewById(R.id.product_category);
         productSize = root.findViewById(R.id.product_size);
         productRating = root.findViewById(R.id.product_rating);
-
-        addProduct = root.findViewById(R.id.add_product);
+        back = root.findViewById(R.id.back_button);
+        save = root.findViewById(R.id.add_product);
 
         db = FirebaseFirestore.getInstance();
-        addProduct.setOnClickListener(new View.OnClickListener() {
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SellerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), MainActivity.class);

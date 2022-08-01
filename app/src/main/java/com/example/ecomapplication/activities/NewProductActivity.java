@@ -44,7 +44,7 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
     Spinner category_;
     String text, cate_gory;
     Product product;
-    ImageView thumbnail ;
+    ImageView thumbnail, save, back;
     StorageReference storageReference;
     private FirebaseAuth auth;
     Uri imageUri;
@@ -66,8 +66,8 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
         category_ = findViewById(R.id.product_category);
         productSize = findViewById(R.id.product_size);
         productRating = findViewById(R.id.product_rating);
-
-        addProduct = findViewById(R.id.add_product);
+        back = findViewById(R.id.back_button);
+        save = findViewById(R.id.add_product);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,7 +76,16 @@ public class NewProductActivity extends AppCompatActivity implements AdapterView
         db = FirebaseFirestore.getInstance();
 
         category_.setOnItemSelectedListener(this);
-        addProduct.setOnClickListener(new View.OnClickListener() {
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewProductActivity.this, SellerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String _productName = productName.getText().toString().trim();

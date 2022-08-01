@@ -26,11 +26,11 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
     String product_name_, product_desc_, product_category_, product_price_, product_quantity_, product_size_, product_rating_, document_;
     TextView update_product;
     String id_product;
+    ImageView back, save;
     String cate_gory, text;
     FirebaseFirestore db;
     Spinner product_gate_gory;
     Product product;
-    ImageView back;
     @Override
     public void onBackPressed()
     {
@@ -50,8 +50,8 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
         product_price = findViewById(R.id.price_update);
         product_quantity = findViewById(R.id.quantity_update);
         product_size = findViewById(R.id.size_update);
-        product_rating = findViewById(R.id.rating_update);
-        update_product = findViewById(R.id.update_product);
+       // product_rating = findViewById(R.id.rating_update);
+        save = findViewById(R.id.update_product);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,14 +71,14 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
             product_price.getEditText().setText(String.valueOf(product.getPrice()));
             product_quantity.getEditText().setText(String.valueOf(product.getQuantity()));
             product_size.getEditText().setText(product.getSize());
-            product_rating.getEditText().setText(product.getRating());
+         //   product_rating.getEditText().setText(product.getRating());
 
             product_name_ = product.getName();
             product_desc_ = product.getDescription();
             product_category_ = product.getId_category();
             product_price_ = String.valueOf( product.getPrice());
             product_quantity_ = String.valueOf(product.getQuantity());
-            product_rating_ = product.getRating();
+           // product_rating_ = product.getRating();
             product_size_ = product.getSize();
         }
 
@@ -94,7 +94,7 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
 
         product_gate_gory.setOnItemSelectedListener(this);
 
-        update_product.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SellerActivity.class);
@@ -102,8 +102,8 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
                 String descProdCheck = product_desc.getEditText().getText().toString();
                 String priceProdCheck = product_price.getEditText().getText().toString();
                 String quantityProdCheck = product_quantity.getEditText().getText().toString();
-                String ratingProdCheck = product_rating.getEditText().getText().toString();
-                boolean check = validateProductInfo(nameProdCheck, descProdCheck, priceProdCheck, quantityProdCheck, ratingProdCheck);
+             //   String ratingProdCheck = product_rating.getEditText().getText().toString();
+                boolean check = validateProductInfo(nameProdCheck, descProdCheck, priceProdCheck, quantityProdCheck);
                 if(check == true){
                     updateProduct();
                     startActivity(intent);
@@ -131,13 +131,13 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
                             "id_category", cate_gory,
                             "price",  Integer.valueOf(product_price.getEditText().getText().toString()),
                             "quantity",  Integer.valueOf(product_quantity.getEditText().getText().toString()),
-                            "rating", product_rating.getEditText().getText().toString(),
+                            "rating", product.getRating(),
                             "size", product_size.getEditText().getText().toString());
             Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public Boolean validateProductInfo(String _prodName, String _prodDesc, String _prodPrice, String _prodQuantity, String _prodRating){
+    public Boolean validateProductInfo(String _prodName, String _prodDesc, String _prodPrice, String _prodQuantity){
         if(_prodName.length() == 0){
             product_name.requestFocus();
             product_name.setError("Không được để trống!");
@@ -169,15 +169,6 @@ public class EditProductActivity extends AppCompatActivity implements AdapterVie
         } else if (!_prodQuantity.matches("^[1-9]+[0-9]+")){
             product_quantity.requestFocus();
             product_quantity.setError("Số lượng kho hàng không hợp lệ!");
-            return false;
-        }
-        else if (_prodRating.length() == 0){
-            product_rating.requestFocus();
-            product_rating.setError("Không được để trống!");
-            return false;
-        } else if (Double.valueOf(_prodRating) > 5){
-            product_rating.requestFocus();
-            product_rating.setError("Dữ liệu đánh giá không hợp lệ!");
             return false;
         }
         else{

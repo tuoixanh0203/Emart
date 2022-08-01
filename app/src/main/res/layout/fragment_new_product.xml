@@ -18,7 +18,9 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_back"
+            android:layout_marginStart="5dp"
+            android:id="@+id/back_button"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
             android:layout_alignParentLeft="true"/>
 
         <TextView
@@ -28,17 +30,16 @@
             android:text="Thêm sản phẩm"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="16dp"
+            android:textSize="26dp"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thoát"
-            android:textColor="@color/textHeading"
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
             android:layout_alignParentRight="true"
-            android:textStyle="normal"
-            android:textSize="15dp"/>
+            android:id="@+id/add_product"
+            android:src="@drawable/ic_baseline_save_24"/>
 
     </LinearLayout>
 
@@ -87,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="22dp"
-                android:drawableStart="@drawable/ic_baseline_edit_24"
+                android:drawableStart="@drawable/ic_baseline_edit_black"
                 android:drawablePadding="12dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
@@ -107,7 +108,9 @@
                 android:layout_height="60dp"
                 android:ems="10"
                 android:layout_marginTop="12dp"
+                android:drawablePadding="12dp"
                 android:hint="Mô tả sản phẩm *"
+                android:drawableStart="@drawable/ic_baseline_article_gray_24"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:background="@drawable/custom_input"
@@ -204,14 +207,14 @@
 <!--                app:layout_constraintStart_toStartOf="parent"-->
 <!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Lưu"
-                android:id="@+id/add_product"
-                />
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:text="Lưu"-->
+<!--                android:id="@+id/add_product"-->
+<!--                />-->
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

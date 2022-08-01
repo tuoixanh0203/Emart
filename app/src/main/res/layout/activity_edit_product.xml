@@ -18,8 +18,9 @@
             android:id="@+id/back_action"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginStart="5dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_baseline_back" />
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
         <TextView
             android:layout_weight="0.5"
@@ -28,17 +29,17 @@
             android:text="Sửa sản phẩm"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="16dp"
+            android:textSize="26dp"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thoát"
-            android:textColor="@color/textHeading"
-            android:layout_alignParentRight="true"
-            android:textStyle="normal"
-            android:textSize="15dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/update_product"
+            android:src="@drawable/ic_baseline_save_24"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentLeft="true"/>
 
     </LinearLayout>
 
@@ -53,13 +54,26 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:hint="Tên sản phẩm"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/product_name_update"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@color/textHeading"
+        app:startIconDrawable="@drawable/ic_baseline_edit_black">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="10dp"
+            android:textSize="18dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:backgroundTint="@color/white"/>
@@ -68,13 +82,117 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:hint="Mô tả sản phẩm"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/product_desc_update"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="500"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundColor="@color/textHeading"
+        app:startIconDrawable="@drawable/ic_baseline_article_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="10dp"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/white"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <RelativeLayout-->
+
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginLeft="15dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_username"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            android:backgroundTint="@color/blur"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:paddingLeft="35dp"-->
+<!--            android:text="Danh mục"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/product_category_update"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="42dp"-->
+<!--            android:textColor="@color/gray"-->
+<!--            android:textSize="15sp"-->
+<!--            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
+
+<!--    </RelativeLayout>-->
+
+    <Spinner
+        android:id="@+id/product_category_update"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="12dp"
+        android:drawableStart="@drawable/ic_baseline_edit_24"
+        android:drawablePadding="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_input"
+        android:textColor="@color/gray"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="18dp" />
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:hint="Giá"-->
+<!--        android:id="@+id/price_update"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:drawableLeft="@drawable/ic_baseline_location_on_24"-->
+<!--            android:drawablePadding="10dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:backgroundTint="@color/white"/>-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:hint="Giá tiền"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/price_update"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="18dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_monetization_on_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:drawablePadding="10dp"
+            android:textSize="18dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:backgroundTint="@color/white"/>
@@ -82,135 +200,123 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 <!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:hint="Danh mục"-->
-<!--        android:id="@+id/product_category_update"-->
+<!--        android:hint="Kho hàng"-->
+<!--        android:id="@+id/quantity_update"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_width="match_parent">-->
 
 <!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:drawableLeft="@drawable/ic_baseline_username"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_email_24"-->
 <!--            android:drawablePadding="10dp"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:backgroundTint="@color/blur"/>-->
+<!--            android:backgroundTint="@color/white"/>-->
 
 <!--    </com.google.android.material.textfield.TextInputLayout>-->
-    <RelativeLayout
-
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_baseline_username"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:backgroundTint="@color/blur"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="35dp"
-            android:text="Danh mục"
-            android:textSize="16sp" />
-
-        <Spinner
-            android:id="@+id/product_category_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="42dp"
-            android:textColor="@color/gray"
-            android:textSize="15sp"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    </RelativeLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:hint="Giá"
-        android:id="@+id/price_update"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_location_on_24"
-            android:drawablePadding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:backgroundTint="@color/white"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:hint="Kho hàng"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/quantity_update"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_quantity_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="10dp"
+            android:textSize="18dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:backgroundTint="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:hint="Phân loại"-->
+<!--        android:id="@+id/size_update"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:drawableLeft="@drawable/ic_baseline_phone_24"-->
+<!--            android:drawablePadding="10dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:backgroundTint="@color/white"/>-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:hint="Phân loại"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/size_update"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_phone_24"
-            android:drawablePadding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:backgroundTint="@color/white"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:hint="Đánh giá"
-        android:id="@+id/rating_update"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:drawableLeft="@drawable/ic_baseline_phone_24"
-            android:drawablePadding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:backgroundTint="@color/white"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:helperTextTextColor="@color/red"
+        app:counterEnabled="true"
+        app:counterMaxLength="50"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_category_24">
 
-        <TextView
-            android:id="@+id/update_product"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="-10dp"
-            android:background="@drawable/bg_btn"
-            android:clickable="true"
-            android:drawableLeft="@drawable/ic_baseline_save_24"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:text="Lưu"
-            android:textColor="@color/textHeading"
-            android:textSize="18dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:drawablePadding="10dp"
+            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:backgroundTint="@color/white"/>
 
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:hint="Đánh giá"-->
+<!--        android:id="@+id/rating_update"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:drawableLeft="@drawable/ic_baseline_phone_24"-->
+<!--            android:drawablePadding="10dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:backgroundTint="@color/white"/>-->
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/update_product"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginLeft="-10dp"-->
+<!--            android:background="@drawable/bg_btn"-->
+<!--            android:clickable="true"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_save_24"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:text="Lưu"-->
+<!--            android:textColor="@color/textHeading"-->
+<!--            android:textSize="18dp" />-->
+
+<!--    </LinearLayout>-->
 
 </LinearLayout>

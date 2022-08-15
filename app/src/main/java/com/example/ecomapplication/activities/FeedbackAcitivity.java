@@ -18,6 +18,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ecomapplication.MainActivity;
 import com.example.ecomapplication.R;
 import com.example.ecomapplication.adapters.CommentAdapter;
 import com.example.ecomapplication.models.Order;
@@ -151,7 +152,7 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
                     float ratingValue = (float) Math.round(f * 10) / 10;
                     db.collection("Product").document(id_product)
                             .update("rating", String.valueOf(ratingValue), "rating_number", ratingNumPro + 1);
-                    Intent intent = new Intent(FeedbackAcitivity.this, DetailActivity.class);
+                    Intent intent = new Intent(FeedbackAcitivity.this, MainActivity.class);
                     intent.putExtra("id_product",  id_product);
                     startActivity(intent);
                 });

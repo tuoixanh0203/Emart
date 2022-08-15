@@ -35,10 +35,10 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:id="@+id/save"
         android:text="Lưu"
         android:textColor="@color/textHeading"
         android:textSize="15dp"
@@ -48,21 +48,17 @@
 
   <LinearLayout
       android:id="@+id/linear_ll1"
-      android:layout_width="421dp"
-      android:layout_height="111dp"
-      android:paddingTop="50dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/linear_ll">
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="10dp"
+      app:layout_constraintTop_toBottomOf="@id/linear_ll">
 
     <ImageView
         android:id="@+id/product_photo"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -71,8 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="17dp"
+        android:layout_marginEnd="18dp"
         android:text="TextView"
-        android:textSize="13dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/comment_user_ava"
         app:layout_constraintTop_toTopOf="parent" />
@@ -83,14 +80,12 @@
       android:id="@+id/rating_product"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="516dp"
+      android:layout_marginTop="30dp"
       android:numStars="5"
       android:rating="0.0"
-
       android:stepSize="1"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linear_ll1"
       app:layout_constraintVertical_bias="0.0" />
@@ -107,16 +102,29 @@
         android:id="@+id/thumbnail"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         tools:src="@tools:sample/avatars" />
   </LinearLayout>
+
+  <!--  <EditText-->
+  <!--      android:layout_width="390dp"-->
+  <!--      android:layout_height="75dp"-->
+  <!--      android:id="@+id/content_fb"-->
+  <!--      android:text="Hãy chia sẻ những điều bạn thích về sản phẩm này nhé"-->
+  <!--      app:layout_constraintBottom_toBottomOf="parent"-->
+  <!--      app:layout_constraintEnd_toEndOf="parent"-->
+  <!--      app:layout_constraintHorizontal_bias="0.473"-->
+  <!--      app:layout_constraintStart_toStartOf="parent"-->
+  <!--      app:layout_constraintTop_toBottomOf="@+id/button_add_img_fb"-->
+  <!--      app:layout_constraintVertical_bias="0.045" />-->
 
   <TextView
       android:id="@+id/button_add_img_fb"
       android:layout_width="139dp"
       android:layout_height="51dp"
-      android:layout_marginTop="16dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="5dp"
       android:background="@drawable/bg_btn"
       android:clickable="true"
       android:drawableLeft="@drawable/ic_baseline_photo_camera_24"
@@ -126,21 +134,30 @@
       android:textColor="@color/textHeading"
       android:textSize="18dp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.959"
+      app:layout_constraintHorizontal_bias="0.958"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
   <EditText
-      android:layout_width="390dp"
-      android:layout_height="75dp"
       android:id="@+id/content_fb"
-      android:text="Hãy chia sẻ những điều bạn thích về sản phẩm này nhé"
+      android:layout_width="0dp"
+      android:layout_height="69dp"
+      android:layout_marginStart="18dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="18dp"
+      android:background="@drawable/custom_input"
+      android:drawableStart="@drawable/ic_baseline_edit_black"
+      android:drawablePadding="12dp"
+      android:hint="Hãy để lại đánh giá của bạn nhé"
+      android:inputType="text"
+      android:paddingStart="8dp"
+      android:paddingEnd="8dp"
+      android:textSize="18dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.473"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/button_add_img_fb"
-      app:layout_constraintVertical_bias="0.045" />
+      app:layout_constraintVertical_bias="0.017" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

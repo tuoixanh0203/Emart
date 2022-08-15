@@ -245,7 +245,12 @@ public class DetailActivity extends AppCompatActivity {
             } else {
                 Log.w("TAG", "Error getting documents.", task.getException());
             }
+            Log.v("Sizezzzzz2", String.valueOf(list.size()));
+            if(list.size() != 0) {
+                orderWarning.setVisibility(View.GONE);
+            }
         });
+
     }
 
     public void showMessage(String message){
@@ -276,10 +281,6 @@ public class DetailActivity extends AppCompatActivity {
                                                     && product.getDocumentId().equals(productId)) {
                                                 Log.v("fdsfs____",product.getDocumentId());
                                                 Log.v("fdsfs____order",order);
-                                                userCommentImg.setVisibility(View.VISIBLE);
-                                                postDetailComment.setVisibility(View.VISIBLE);
-                                                addComment.setVisibility(View.VISIBLE);
-                                                orderWarning.setVisibility(View.INVISIBLE);
                                                 return;
                                             }
 
@@ -289,6 +290,8 @@ public class DetailActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     @Override
     protected void onResume() {

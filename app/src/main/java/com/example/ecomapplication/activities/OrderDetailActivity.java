@@ -32,7 +32,7 @@ public class OrderDetailActivity extends AppCompatActivity {
     TextView total;
     Button feedback;
     List<Product> productList;
-    String id;
+    String id, OrderStatus;
     int totalPr = 0;
 
     @Override
@@ -57,6 +57,18 @@ public class OrderDetailActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         productView = findViewById(R.id.productList);
         total = findViewById(R.id.all_total_price_order);
+        feedback = findViewById(R.id.button_feedback);
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        Intent intent = new Intent(OrderDetailActivity.this, FeedbackAcitivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_order", orderModel);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                });
 
         productList = new ArrayList<>();
         firestore.collection("OrderDetail").document(id)

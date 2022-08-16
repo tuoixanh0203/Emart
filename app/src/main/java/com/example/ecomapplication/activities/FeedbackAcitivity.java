@@ -132,6 +132,8 @@ public class FeedbackAcitivity extends AppCompatActivity implements AdapterView.
             AddCommentToFireBase(_comment, new Date(), _id, emailUser, _imgUrl, numStar, imgUrlComment);
             updateRatingProduct(numStar);
 //            startActivity(new Intent(FeedbackAcitivity.this , HomeFragment.class));
+            db.collection("Order").document(auth.getUid()).collection("Orders").document(id_order)
+                    .update("status", "rated");
         });
 
         btnAddImgFb.setOnClickListener(new View.OnClickListener() {

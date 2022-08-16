@@ -79,6 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="15dp"
+                        android:progressTint="@color/quantum_yellow"
                         android:isIndicator="true"
                         android:numStars="5"
                         android:rating="4.3"

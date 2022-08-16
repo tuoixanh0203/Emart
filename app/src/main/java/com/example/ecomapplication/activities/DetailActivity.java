@@ -241,6 +241,9 @@ public class DetailActivity extends AppCompatActivity {
             } else {
                 Log.w("TAG", "Error getting documents.", task.getException());
             }
+            if(list.size() != 0) {
+                orderWarning.setVisibility(View.GONE);
+            }
         });
     }
 
@@ -275,7 +278,7 @@ public class DetailActivity extends AppCompatActivity {
 //                                                userCommentImg.setVisibility(View.VISIBLE);
 //                                                postDetailComment.setVisibility(View.VISIBLE);
 //                                                addComment.setVisibility(View.VISIBLE);
-                                                orderWarning.setVisibility(View.INVISIBLE);
+//                                                orderWarning.setVisibility(View.INVISIBLE);
                                                 return;
                                             }
 

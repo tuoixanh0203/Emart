@@ -32,6 +32,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
@@ -48,6 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 //    private FirebaseStorage storage;
     FirebaseFirestore db;
     private FirebaseAuth auth;
+    String id_product;
 
     public OrderAdapter(Context context, List<OrderModel> list) {
         this.context = context;
@@ -65,6 +67,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        db.collection("OrderDetail").document(list.get(position).getId())
+                .collection("Products").get().addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        Product product = document.toObject(Product.class);
+                        id_product = product.getDocumentId();
+                    }
+                });
         OrderModel orderModel = list.get(position);
         holder.layoutItem.setOnClickListener(view -> onClickGoToDetail(orderModel));
         Date ordered = list.get(position).getOrderDate();
@@ -104,6 +113,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 holder.buttonReceived.setVisibility(View.GONE);
                 holder.buttonFeedback.setVisibility(View.VISIBLE);
                 break;
+            case "rated":
+                holder.buttonReceived.setVisibility(View.GONE);
+                holder.buttonFeedback.setVisibility(View.GONE);
+                holder.buttonShowFeedback.setVisibility(View.VISIBLE);
+                break;
         }
         int id = position;
         holder.buttonReceived.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +139,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object_order", orderModel);
                 intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+        holder.buttonShowFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("id_product", id_product);
                 context.startActivity(intent);
             }
         });
@@ -236,7 +258,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView orderAddress, orderDate, shippedDate, total, status_order;
         RelativeLayout layoutItem;
-        Button buttonReceived, buttonFeedback;
+        Button buttonReceived, buttonFeedback, buttonShowFeedback;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -247,6 +269,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             layoutItem = itemView.findViewById(R.id.order_item);
             buttonReceived = itemView.findViewById(R.id.btn_received);
             buttonFeedback = itemView.findViewById(R.id.btn_feedback);
+            buttonShowFeedback = itemView.findViewById(R.id.btn_show_feedback);
         }
     }
 }

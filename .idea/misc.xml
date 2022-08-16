@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_detail.xml" value="0.18" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_feedback_acitivity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/activity_seller_oder_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/cart_item_test.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/category_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/category_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/my_order_item.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Emart/app/src/main/res/layout/popular_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ecommerAndroidV2/app/src/main/res/layout/fragment_home.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ecommerAndroidV2/app/src/main/res/layout/product_items.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ecommerAndroidV2/app/src/main/res/layout/product_order_item.xml" value="0.17074275362318841" />
